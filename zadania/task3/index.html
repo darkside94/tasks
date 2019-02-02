@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Task 3</title>
+  <style>
+    div {
+      height: 10px;
+      width: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <script>
+    const solution = (N) => {
+
+      const div = document.createElement('div')
+
+      let number = 1;
+
+      while (number <= N) {
+
+        document.body.appendChild(div);
+        div.textContent += number + '\n';
+
+        if (number % 2 === 0) {
+          if (number % 3 === 0) {
+            if (number % 5 === 0) {
+              div.textContent = div.textContent.replace(number, 'CodilityTestCoders')
+            }
+          }
+        }
+
+        if ((number % 2 === 0) && (number % 3 === 0)) {
+          div.textContent = div.textContent.replace(number, 'CodilityTest')
+        }
+
+        if ((number % 2 === 0) && (number % 5 === 0)) {
+          div.textContent = div.textContent.replace(number, 'CodilityCoders')
+        }
+
+        if (number % 2 === 0) {
+          div.textContent = div.textContent.replace(number, 'Codility')
+        }
+
+        if (number % 3 === 0) {
+          div.textContent = div.textContent.replace(number, 'Test')
+        }
+
+        if (number % 5 === 0) {
+          div.textContent = div.textContent.replace(number, 'Coders')
+        }
+
+        number++;
+      }
+    }
+    solution(32)
+  </script>
+</body>
+
+</html>
