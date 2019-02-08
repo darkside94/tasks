@@ -10,22 +10,28 @@ export default class LikeButton extends Component {
   }
 
   buttonClickHandler = () => {
-    this.setState(prevState => ({
-      clicked: !false,
-      likes: prevState.likes + 1
-    }));
-  };
 
-  // buttonClickHandler = () => {
-  //   this.setState({
-  //     clicked: !false,
-  //     likes: 101
-  //   });
-  // };
+    if (!this.state.clicked) {
+      this.setState(prevState => {
+        return {
+          likes: prevState.likes + 1,
+          clicked: !false
+        };
+      });
+
+    } else {
+
+      this.setState(prevState => {
+        return {
+          likes: prevState.likes - 1,
+          clicked: false
+        };
+      });
+
+    }
+  }
 
   render() {
-
-
     return (
       <>
         <button className={this.state.clicked ? 'liked' : 'like-button'}
@@ -36,3 +42,4 @@ export default class LikeButton extends Component {
     );
   }
 }
+
